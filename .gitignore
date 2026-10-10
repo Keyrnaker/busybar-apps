@@ -1,0 +1,9 @@
+.venv/
+tools/
+__pycache__/
+*.pyc
+.env
+.DS_Store
+printers.toml
+.superpowers/
+.scratch/

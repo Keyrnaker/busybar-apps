@@ -1,0 +1,30 @@
+# Copy to printers.toml and fill in. Find IP / access code on the printer:
+# Settings > Network (IP) and Settings > LAN Mode / Access Code.
+[busybar]
+host = "10.0.4.20"   # USB default; --host on the command line overrides
+token = ""           # Wi-Fi access PIN if you set one on the bar
+
+[[printers]]
+name = "P1S-A"
+ip = "192.168.0.31"
+serial = "01P00A000000000"
+access_code = "12345678"
+color = "mint"        # mint | amber | blue | rose
+
+[[printers]]
+name = "P1S-B"
+ip = "192.168.0.32"
+serial = "01P00A000000001"
+access_code = "12345678"
+color = "amber"
+
+[[printers]]
+name = "X1C"
+ip = "192.168.0.33"
+serial = "00M00A000000000"
+access_code = "12345678"
+color = "blue"
+
+[display]
+layout = "grid"      # list: two printers per screen | grid: four
+mark = "printer"     # printer: neutral extruder mark | bambu: hand-drawn Bambu Lab mark (their trademark; personal use)

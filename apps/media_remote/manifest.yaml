@@ -1,0 +1,8 @@
+name: Media Remote
+author: Keyrnaker
+description: Shows what macOS is playing (YouTube in Chrome, Spotify, Apple Music) with app icon, thumbnail, title and progress; OK/START play-pause, BACK restart/previous, dial seeks 10 s. macOS only.
+tags:
+  - media
+  - now-playing
+  - remote
+preview: ./preview.png

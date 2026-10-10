@@ -1,0 +1,7 @@
+name: Steady Clock
+author: Keyrnaker
+description: Big clock whose digits sit in fixed slots, so nothing jumps when a 1 appears. Options --no-seconds, --color.
+tags:
+  - clock
+  - time
+preview: ./preview.png
