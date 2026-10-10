@@ -35,7 +35,7 @@ DOT = WHITE  # the climbing dot in the "printing" logo frames
 # The printer mark is 7 wide x 8 tall with a vertical channel in column 3 (SLIT_X): the "printing"
 # animation runs a dot down that channel. Two marks are available, chosen with `[display] mark`:
 MARKS: dict[str, tuple[str, ...]] = {
-    # "printer" (default): an extruder seen from the front, filament channel down the middle.
+    # "printer": an extruder seen from the front, filament channel down the middle (neutral option).
     "printer": (
         "###.###",
         "###.###",
@@ -46,8 +46,8 @@ MARKS: dict[str, tuple[str, ...]] = {
         "..#.#..",
         "...#...",
     ),
-    # "bambu": a hand-drawn rendition of the Bambu Lab mark (two blocks split by offset diagonals).
-    # It is Bambu Lab's trademark: fine on your own desk, not something to ship as a default.
+    # "bambu" (default): a hand-drawn rendition of the Bambu Lab mark (two blocks split by offset
+    # diagonals). Bambu Lab's trademark, used here only to identify their printers; see README.
     "bambu": (
         "###.###",
         "###.###",
@@ -59,7 +59,7 @@ MARKS: dict[str, tuple[str, ...]] = {
         "###.###",
     ),
 }
-DEFAULT_MARK = "printer"
+DEFAULT_MARK = "bambu"
 BITMAPS: dict[str, tuple[str, ...]] = {
     "logo": MARKS[DEFAULT_MARK],
     "check": (

@@ -76,7 +76,7 @@ def test_display_layout_option():
 
 def test_parse_config_mark_defaults_to_printer_and_validates():
     cfg = parse_config(GOOD)
-    assert cfg.mark == "printer"
-    assert parse_config({**GOOD, "display": {"layout": "grid", "mark": "bambu"}}).mark == "bambu"
+    assert cfg.mark == "bambu"
+    assert parse_config({**GOOD, "display": {"layout": "grid", "mark": "printer"}}).mark == "printer"
     with pytest.raises(ConfigError):
         parse_config({**GOOD, "display": {"mark": "octopus"}})

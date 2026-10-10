@@ -27,4 +27,4 @@ color = "blue"
 
 [display]
 layout = "grid"      # list: two printers per screen | grid: four
-mark = "printer"     # printer: neutral extruder mark | bambu: hand-drawn Bambu Lab mark (their trademark; personal use)
+mark = "bambu"       # bambu: hand-drawn Bambu Lab mark (default) | printer: neutral extruder mark

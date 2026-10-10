@@ -36,7 +36,7 @@ def test_all_bitmaps_are_8_rows():
         assert len(rows) == (14 if name.startswith("big_") else 7 if name.startswith("grid_") else 8), name   # grid copies drop one row; big is 2x grid
         assert all(len(r) == width and set(r) <= {"#", ".", "o"} for r in rows), name
     from apps.bambu_progress.icons import DEFAULT_MARK, MARKS
-    assert DEFAULT_MARK == "printer" and BITMAPS["logo"] == MARKS["printer"]                     # neutral by default
+    assert DEFAULT_MARK == "bambu" and BITMAPS["logo"] == MARKS["bambu"]
     assert MARKS["bambu"] == ("###.###", "###.###", "###..##", "###.#.#", "##..##.", "#.#.###", ".##.###", "###.###")   # the hand-drawn option
     assert {"logo", "grid_logo", "check", "pause", "error", "hourglass"} <= BITMAPS.keys()
     assert not any(n.startswith(("logo_run", "grid_logo_run")) for n in BITMAPS)   # run frames are generated (run_frames)
@@ -148,7 +148,7 @@ def _pixels(frame: bytes, width: int):
 
 def test_logo_slit_is_column_three_and_run_dot_climbs_it():
     from apps.bambu_progress.icons import SLIT_X, TRAIL_ALPHA, run_frames
-    assert SLIT_X == 3 and all(r[3] == "." for r in BITMAPS["logo"][:-1])     # the channel is open (the tip row may close it)
+    assert SLIT_X == 3 and all(r[3] == "." for r in BITMAPS["logo"])          # the slit never fills
     for name in ("logo", "grid_logo"):
         bitmap = BITMAPS[name]
         frames = run_frames(bitmap, "#00AE42")
@@ -218,13 +218,13 @@ def test_big_mark_is_the_grid_mark_scaled_two_times():
 def test_select_mark_switches_every_size_and_resets_the_animation_cache():
     from apps.bambu_progress.icons import MARKS, animation_bytes, select_mark
     try:
-        select_mark("bambu")
-        assert BITMAPS["logo"] == MARKS["bambu"] and BITMAPS["grid_logo"] == MARKS["bambu"][1:] and len(BITMAPS["big_logo"]) == 14
-        bambu_run = animation_bytes("grid_logo_run", "#00D455")
         select_mark("printer")
-        assert BITMAPS["logo"] == MARKS["printer"]
-        assert animation_bytes("grid_logo_run", "#00D455") != bambu_run                     # regenerated for the new mark
+        assert BITMAPS["logo"] == MARKS["printer"] and BITMAPS["grid_logo"] == MARKS["printer"][1:] and len(BITMAPS["big_logo"]) == 14
+        printer_run = animation_bytes("grid_logo_run", "#00D455")
+        select_mark("bambu")
+        assert BITMAPS["logo"] == MARKS["bambu"]
+        assert animation_bytes("grid_logo_run", "#00D455") != printer_run                   # regenerated for the new mark
         with pytest.raises(KeyError):
             select_mark("nope")
     finally:
-        select_mark("printer")
+        select_mark("bambu")

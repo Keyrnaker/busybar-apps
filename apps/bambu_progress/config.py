@@ -33,7 +33,7 @@ class PrinterConfig:
 
 
 LAYOUTS = ("list", "grid")   # list: 2 rows of 8px; grid: 2x2 cells of 36x8
-MARKS = ("printer", "bambu")  # the printer mark drawn next to each name (icons.MARKS)
+MARKS = ("bambu", "printer")  # the mark drawn next to each name (icons.MARKS)
 
 
 @dataclass(frozen=True)
@@ -42,7 +42,7 @@ class AppConfig:
     token: str | None
     printers: list[PrinterConfig]
     layout: str = "list"
-    mark: str = "printer"
+    mark: str = "bambu"
 
 
 _REQUIRED = ("name", "ip", "serial", "access_code")
@@ -91,7 +91,7 @@ def parse_config(data: dict[str, Any]) -> AppConfig:
     layout = str(display.get("layout") or "list")
     if layout not in LAYOUTS:
         raise ConfigError(f"display.layout must be one of {', '.join(LAYOUTS)}, got {layout!r}")
-    mark = str(display.get("mark") or "printer")
+    mark = str(display.get("mark") or "bambu")
     if mark not in MARKS:
         raise ConfigError(f"display.mark must be one of {', '.join(MARKS)}, got {mark!r}")
     return AppConfig(host=host, token=token, printers=printers, layout=layout, mark=mark)
