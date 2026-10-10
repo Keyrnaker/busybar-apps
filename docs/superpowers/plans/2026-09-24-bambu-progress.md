@@ -2499,7 +2499,7 @@ if __name__ == "__main__":
 `apps/bambu_progress/manifest.yaml`:
 ```yaml
 name: Bambu Progress
-author: jhyeup
+author: Keyrnaker
 description: Pick one of your Bambu Lab printers with the dial and watch its progress bar, remaining time, and finish/pause/error alerts. Local MQTT, no cloud.
 tags:
   - 3d-printing

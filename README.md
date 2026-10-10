@@ -1,3 +1,8 @@
+<p align="right">
+  <a href="README.md"><img alt="English" src="https://img.shields.io/badge/English-3DDC84?style=for-the-badge"></a>
+  <a href="README.ko.md"><img alt="한국어" src="https://img.shields.io/badge/한국어-2A3140?style=for-the-badge"></a>
+</p>
+
 <p align="center">
   <img src="docs/images/grid.png" width="576" alt="Four Bambu Lab printers on the BUSY Bar">
 </p>
@@ -15,8 +20,6 @@
   <img alt="macOS 14+" src="https://img.shields.io/badge/launcher-macOS%2014%2B-000000">
   <img alt="tests" src="https://img.shields.io/badge/tests-163%20passing-3DDC84">
 </p>
-
-> 한국어 설명은 [아래](#한국어)에 있습니다.
 
 ---
 
@@ -143,22 +146,3 @@ their owners. The pixel rendition of the Bambu mark identifies Bambu printers on
 nothing else; set `mark = "printer"` for a neutral one. No firmware code or assets are included;
 the `.anim` container was implemented from the format description in the GPLv2 firmware sources
 and the MIT/Apache `busybar-anim` crate.
-
----
-
-## 한국어
-
-Flipper **BUSY Bar**(72×16 RGB LED 탁상 디스플레이)용 앱 모음과, 그 앱들을 실행하는 macOS 메뉴
-막대 런처입니다. 기기에 설치하는 것이 아니라 PC에서 기기의 HTTP API로 화면을 그립니다.
-
-- **bambu_progress**: Bambu Lab 프린터 최대 4대의 진행률과 상태. 다이얼로 고르고 OK로 상세 화면.
-  완료·일시정지·오류 알림은 바 기본 화면과 같은 스타일의 애니메이션. 프린터의 로컬 MQTT만 사용합니다.
-- **media_remote**: macOS에서 재생 중인 미디어(크롬 유튜브, Spotify, Apple Music)를 바에 보여 주고
-  버튼과 다이얼로 조작합니다. Apple Music은 가사도 나옵니다.
-- **steady_clock**: 자릿수가 고정되어 흔들리지 않는 시계.
-- **launcher/**: 앱을 골라 실행하는 macOS 메뉴 막대 앱. 파이썬이 내장되어 있어 따로 설치할 것이 없습니다.
-
-설치와 실행은 위 Quick start와 같습니다. `printers.toml`은 git에 올라가지 않으니 접근 코드는
-안전합니다. 움직이는 효과는 모두 기기가 직접 재생하는 `.anim` 파일이라 끊김이 없습니다.
-
-개인 프로젝트이며 Flipper Devices, BUSY, Bambu Lab과 관계가 없습니다. 코드는 MIT 라이선스입니다.

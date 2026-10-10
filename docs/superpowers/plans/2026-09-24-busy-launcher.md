@@ -12,7 +12,7 @@
 
 ## Global Constraints
 
-- All launcher code under `busybar/launcher/`. Target/module name `BUSYLauncher`, product name `BUSY Launcher`, bundle id `com.jhyeup.busylauncher`, minimum macOS 14.
+- All launcher code under `busybar/launcher/`. Target/module name `BUSYLauncher`, product name `BUSY Launcher`, bundle id `io.github.keyrnaker.busylauncher`, minimum macOS 14.
 - Build/test only via the scripts: `launcher/scripts/build.sh` and `launcher/scripts/test.sh`. Both export `DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer`. Never call `sudo xcode-select`.
 - Swift language mode 5 (`SWIFT_VERSION = 5.0`), `SWIFT_STRICT_CONCURRENCY = minimal`. No third-party Swift packages.
 - One app at a time. Stop = SIGINT, wait 3 s, SIGKILL. Start-then-exit within 2 s = failed.
@@ -95,7 +95,7 @@ mkdir -p ~/Workspace/busybar/launcher/{Sources/BUSYLauncher/Model,Sources/BUSYLa
 ```yaml
 name: BUSYLauncher
 options:
-  bundleIdPrefix: com.jhyeup
+  bundleIdPrefix: io.github.keyrnaker
   deploymentTarget:
     macOS: "14.0"
   createIntermediateGroups: true
@@ -128,7 +128,7 @@ targets:
     settings:
       base:
         PRODUCT_NAME: BUSY Launcher
-        PRODUCT_BUNDLE_IDENTIFIER: com.jhyeup.busylauncher
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.keyrnaker.busylauncher
         PRODUCT_MODULE_NAME: BUSYLauncher
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         GENERATE_INFOPLIST_FILE: "NO"
@@ -140,7 +140,7 @@ targets:
       - target: BUSYLauncher
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.jhyeup.busylauncher.tests
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.keyrnaker.busylauncher.tests
         TEST_HOST: "$(BUILT_PRODUCTS_DIR)/BUSY Launcher.app/Contents/MacOS/BUSY Launcher"
         BUNDLE_LOADER: "$(TEST_HOST)"
 schemes:
