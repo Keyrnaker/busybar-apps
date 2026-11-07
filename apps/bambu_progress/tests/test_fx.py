@@ -37,7 +37,7 @@ def test_backdrop_loops_seamlessly():
 
 def test_notice_animation_is_a_bgr888_anim_file():
     data = fx.notice_animation("pause")
-    assert data[:8] == SIGNATURE and data[11] == LAYOUT_BGR888 and (data[9], data[10], data[12]) == (fx.W, fx.H, fx.FPS)
+    assert data[:8] == SIGNATURE and data[11] == LAYOUT_BGR888 and (data[9], data[10], data[16]) == (fx.W, fx.H, fx.FPS)
     assert len(data) < 400_000
 
 

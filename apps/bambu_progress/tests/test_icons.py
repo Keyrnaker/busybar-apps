@@ -166,18 +166,11 @@ def test_logo_slit_is_column_three_and_run_dot_climbs_it():
 
 
 def test_run_animation_rests_at_the_bottom_before_looping():
-    import struct
-    from apps.bambu_progress.anim import HEADER_LEN, SECTION_LEN
+    from apps.bambu_progress.anim import decode_anim
     from apps.bambu_progress.icons import RUN_HOLD, animation_bytes
-    data = animation_bytes("grid_logo_run", "#00AE42")
-    records, display_frames = struct.unpack_from("<II", data, 28)
-    assert records == 7 and display_frames == 6 + RUN_HOLD                    # 7 rows; the last one is held
-    holds = []
-    pos = HEADER_LEN + SECTION_LEN
-    for _ in range(records):
-        holds.append(data[pos + 1])
-        pos += 4 + struct.unpack_from("<H", data, pos + 2)[0]
-    assert holds == [1] * 6 + [RUN_HOLD]
+    frames = decode_anim(animation_bytes("grid_logo_run", "#00AE42"))
+    assert len(frames) == 6 + RUN_HOLD                                         # 7 rows; the last one is held
+    assert len(set(frames[:7])) == 7 and set(frames[6:]) == {frames[6]}
 
 
 def test_pulse_frames_breathe_between_two_colours_and_loop_seamlessly():
